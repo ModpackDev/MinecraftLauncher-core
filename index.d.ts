@@ -140,7 +140,7 @@ declare module "@dustinrouillard/minecraft-launcher" {
       fullscreen?: boolean;
     };
     overrides?: IOverrides;
-    authorization: Promise<IUser>;
+    authorization: IUser;
   }
 
   interface IUser {
@@ -151,17 +151,13 @@ declare module "@dustinrouillard/minecraft-launcher" {
     user_properties: Partial<any>;
   }
 
-  interface IProfile {
-    id: number;
-    name: string;
-  }
-
   interface IAuthenticator {
     /**
      * @param username email if using a password, else the username
      * @param password password for mojang account
+     * @param client_token Client token to use
      */
-    getAuth(username: string, password?: string): Promise<IUser>;
+    getAuth(username: string, password: string, client_token: string): Promise<IUser>;
     /**
      * 
      * @param access_token Token being checked if it can be used to login with (online mode)
@@ -178,8 +174,7 @@ declare module "@dustinrouillard/minecraft-launcher" {
      */
     refreshAuth(
       access_token: string,
-      client_token: string,
-      selectedProfile: IProfile
+      client_token: string
     ): Promise<IUser>;
     /**
      * 

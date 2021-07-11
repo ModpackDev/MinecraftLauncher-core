@@ -550,8 +550,6 @@ class Handler {
     const minArgs = this.options.overrides.minArgs || this.isLegacy() ? 5 : 11
     if (args.length < minArgs) args = args.concat(this.version.minecraftArguments ? this.version.minecraftArguments.split(' ') : this.version.arguments.game)
 
-    this.options.authorization = await Promise.resolve(this.options.authorization)
-
     const fields = {
       '${auth_access_token}': this.options.authorization.access_token,
       '${auth_session}': this.options.authorization.access_token,
