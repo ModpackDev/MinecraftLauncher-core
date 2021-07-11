@@ -69,14 +69,13 @@ module.exports.validate = function (access_token, client_token) {
   })
 }
 
-module.exports.refreshAuth = function (accessToken, clientToken, selectedProfile) {
+module.exports.refreshAuth = function (accessToken, clientToken) {
   return new Promise((resolve, reject) => {
     const requestObject = {
       url: api_url + '/refresh',
       json: {
         accessToken: accessToken,
         clientToken: clientToken,
-        selectedProfile: selectedProfile,
         requestUser: true
       }
     }
