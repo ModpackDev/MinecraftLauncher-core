@@ -1,6 +1,6 @@
 /// <reference types="node" />
 
-declare module "minecraft-launcher-core" {
+declare module "minecraft-launcher" {
   type OS = "windows" | "osx" | "linux";
 
   interface IOverrides {
