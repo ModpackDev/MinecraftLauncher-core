@@ -1,5 +1,5 @@
 const request = require('request')
-const uuid = require('uuid/v1')
+const uuid = require('uuid').v1;
 let api_url = 'https://authserver.mojang.com'
 
 module.exports.getAuth = function (username, password, client_token) {
